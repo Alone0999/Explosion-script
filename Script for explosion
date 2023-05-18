@@ -1,0 +1,17 @@
+local Players = game:GetService("Players")
+local Debris = game:GetService("Debris")
+
+local function onTouched(part)
+    local humanoid = part.Parent:FindFirstChild("Humanoid")
+    if humanoid then
+        local player = Players:GetPlayerFromCharacter(humanoid.Parent)
+        if player then
+            local explosion = Instance.new("Explosion")
+            explosion.Position = part.Position
+            explosion.Parent = game.Workspace
+            Debris:AddItem(explosion, 1)
+        end
+    end
+end
+
+script.Parent.Touched:Connect(onTouched)
