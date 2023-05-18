@@ -1,0 +1,26 @@
+local adminUsernames = {"Player1", "Player2"} -- Add the usernames of the players you want to give admin powers to
+
+local function isAdmin(player)
+    for _, username in ipairs(adminUsernames) do
+        if player.Name == username then
+            return true
+        end
+    end
+    return false
+end
+
+local function onChatted(player, message)
+    if isAdmin(player) then
+        if message == "kick" then
+            -- Add code to kick a player here
+        elseif message == "ban" then
+            -- Add code to ban a player here
+        end
+    end
+end
+
+game.Players.PlayerAdded:Connect(function(player)
+    player.Chatted:Connect(function(message)
+        onChatted(player, message)
+    end)
+end)
