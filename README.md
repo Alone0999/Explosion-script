@@ -1,2 +1,2 @@
-# Explosion-script
-This creates explosion when ever the avatar of Roblox when touched on the part where the script is put
+#admin-powers
+this script give the power to the user to kick or ban people etc.
